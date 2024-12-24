@@ -70,8 +70,6 @@ def classify():
         'result': result,
         'confidence': confidence
     })
-        
-        return jsonify(result)
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({'error': 'Failed to process image'}), 500
