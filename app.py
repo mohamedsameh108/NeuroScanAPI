@@ -77,4 +77,4 @@ def classify():
         return jsonify({'error': 'Failed to process image'}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run()
