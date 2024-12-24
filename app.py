@@ -7,10 +7,6 @@ from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import streamlit as st
 
-
-app = Flask(__name__)
-CORS(app)
-
 def image_processing(img):
     image_data = img.read()
     image = Image.open(io.BytesIO(image_data))
@@ -32,6 +28,9 @@ VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
 VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
+app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/api/classify', methods=['POST'])
 def classify():
     try:
