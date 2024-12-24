@@ -24,30 +24,12 @@ def image_processing(img):
     return final_img
     
 
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_NonVSVeryMild.h5')
-NonVSVeryMild_model = load_model(model_path)
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_NonVSMild.h5')
-NonVSMild_model = load_model(model_path)
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_NonVSModerate.h5')
-NonVSModerate_model = load_model(model_path)
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_VeryMildVSMild.h5')
-VeryMildVSMild_model = load_model(model_path)
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_VeryMildVSModerate.h5')
-VeryMildVSModerate_model = load_model(model_path)
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'model_MildVSModerate.h5')
-MildVSModerate_model = load_model(model_path)
+NonVSVeryMild_model = load_model('/mount/src/neuroscanapi/model_NonVSVeryMild.h5')
+NonVSMild_model = load_model('/mount/src/neuroscanapi/model_NonVSMild.h5')
+NonVSModerate_model = load_model('/mount/src/neuroscanapi/model_NonVSModerate.h5')
+VeryMildVSMild_model = load_model('/mount/src/neuroscanapi/model_VeryMildVSMild.h5')
+VeryMildVSModerate_model = load_model('/mount/src/neuroscanapi/model_VeryMildVSModerate.h5')
+MildVSModerate_model = load_model('/mount/src/neuroscanapi/model_MildVSModerate.h5')
 
 @app.route('/api/classify', methods=['POST'])
 def classify():
