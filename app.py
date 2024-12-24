@@ -9,14 +9,7 @@ import streamlit as st
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://neuroscanweb.netlify.app"}})
-
-@app.after_request
-def add_cors_headers(response):
-    response.headers.add("Access-Control-Allow-Origin", "https://neuroscanweb.netlify.app")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    response.headers.add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-    return response
+CORS(app)
 
 def image_processing(img):
     image_data = img.read()
