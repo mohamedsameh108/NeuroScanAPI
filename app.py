@@ -5,6 +5,7 @@ import io
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
+import streamlit as st
 
 
 app = Flask(__name__)
@@ -73,3 +74,6 @@ def classify():
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({'error': 'Failed to process image'}), 500
+
+st.title("Flask Backend Running on Streamlit")
+st.write("This is just a placeholder for Streamlit. The real functionality is the Flask API.")
