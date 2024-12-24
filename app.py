@@ -89,3 +89,6 @@ def classify():
 
 st.title("Flask Backend Running on Streamlit")
 st.write("This is just a placeholder for Streamlit. The real functionality is the Flask API.")
+
+if __name__ == "__main__":
+    app.run()
