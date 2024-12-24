@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
         "origins": [
-            "https://neuroscanweb.netlify.app",
+            "https://cerebroscan.netlify.app/",
             "http://localhost:3000",
             "http://localhost:5173",
             "http://localhost:5000",
