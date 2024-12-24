@@ -25,12 +25,12 @@ def image_processing(img):
     
 
 
-NonVSVeryMild_model = load_model(os.getcwd() + '\\models\\model_NonVSVeryMild.h5')
-NonVSMild_model = load_model(os.getcwd() + '\\models\\model_NonVSMild.h5')
-NonVSModerate_model = load_model(os.getcwd() + '\\models\\model_NonVSModerate.h5')
-VeryMildVSMild_model = load_model(os.getcwd() + '\\models\\model_VeryMildVSMild.h5')
-VeryMildVSModerate_model = load_model(os.getcwd() + '\\models\\model_VeryMildVSModerate.h5')
-MildVSModerate_model = load_model(os.getcwd() + '\\models\\model_MildVSModerate.h5')
+NonVSVeryMild_model = load_model(os.getcwd() + '/models/model_NonVSVeryMild.h5')
+NonVSMild_model = load_model(os.getcwd() + '/models/model_NonVSMild.h5')
+NonVSModerate_model = load_model(os.getcwd() + '/models/model_NonVSModerate.h5')
+VeryMildVSMild_model = load_model(os.getcwd() + '/models/model_VeryMildVSMild.h5')
+VeryMildVSModerate_model = load_model(os.getcwd() + '/models/model_VeryMildVSModerate.h5')
+MildVSModerate_model = load_model(os.getcwd() + '/models/model_MildVSModerate.h5')
 
 @app.route('/api/classify', methods=['POST'])
 def classify():
