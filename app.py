@@ -44,7 +44,7 @@ VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
 VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
-@app.route('/api/classify', methods=['POST'])
+@app.route('', methods=['POST'])
 def classify():
     try:
         if 'image' not in request.files:
