@@ -73,6 +73,3 @@ def classify():
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({'error': 'Failed to process image'}), 500
-
-if __name__ == '__main__':
-    app.run()
