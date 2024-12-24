@@ -25,12 +25,29 @@ def image_processing(img):
     
 
 
-NonVSVeryMild_model = load_model('model_NonVSVeryMild.h5')
-NonVSMild_model = load_model('model_NonVSMild.h5')
-NonVSModerate_model = load_model('model_NonVSModerate.h5')
-VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
-VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
-MildVSModerate_model = load_model('model_MildVSModerate.h5')
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_NonVSVeryMild.h5')
+NonVSVeryMild_model = load_model(model_path)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_NonVSMild.h5')
+NonVSMild_model = load_model(model_path)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_NonVSModerate.h5')
+NonVSModerate_model = load_model(model_path)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_VeryMildVSMild.h5')
+VeryMildVSMild_model = load_model(model_path)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_VeryMildVSModerate.h5')
+VeryMildVSModerate_model = load_model(model_path)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'model_MildVSModerate.h5')
+MildVSModerate_model = load_model(model_path)
 
 @app.route('/api/classify', methods=['POST'])
 def classify():
