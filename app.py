@@ -15,6 +15,7 @@ CORS(app, resources={
             "https://cerebroscan.netlify.app/",
             "http://localhost:3000",
             "http://localhost:5173",
+            "http://localhost:5000",
             "http://127.0.0.1:5000"
         ], "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
@@ -43,7 +44,7 @@ VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
 VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
-@app.route('/', methods=['POST'])
+@app.route('/api/classify', methods=['POST'])
 def classify():
     try:
         if 'image' not in request.files:
@@ -88,6 +89,3 @@ def classify():
 
 st.title("Flask Backend Running on Streamlit")
 st.write("This is just a placeholder for Streamlit. The real functionality is the Flask API.")
-
-if __name__ == "__main__":
-    app.run()
