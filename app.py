@@ -4,7 +4,7 @@ from PIL import Image
 import io
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 
 app = Flask(__name__)
@@ -24,12 +24,12 @@ def image_processing(img):
     return final_img
     
 
-NonVSVeryMild_model = tf.keras.models.load_model('model_NonVSVeryMild.h5')
-NonVSMild_model = tf.keras.models.load_model('model_NonVSMild.h5')
-NonVSModerate_model = tf.keras.models.load_model('model_NonVSModerate.h5')
-VeryMildVSMild_model = tf.keras.models.load_model('model_VeryMildVSMild.h5')
-VeryMildVSModerate_model = tf.keras.models.load_model('model_VeryMildVSModerate.h5')
-MildVSModerate_model = tf.keras.models.load_model('model_MildVSModerate.h5')
+NonVSVeryMild_model = load_model('model_NonVSVeryMild.h5')
+NonVSMild_model = load_model('model_NonVSMild.h5')
+NonVSModerate_model = load_model('model_NonVSModerate.h5')
+VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
+VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
+MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
 @app.route('/api/classify', methods=['POST'])
 def classify():
