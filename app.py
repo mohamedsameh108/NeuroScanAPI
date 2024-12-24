@@ -32,6 +32,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/api/classify', methods=['POST'])
+@cross_origin()
 def classify():
     try:
         if 'image' not in request.files:
