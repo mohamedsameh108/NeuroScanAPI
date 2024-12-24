@@ -3,13 +3,11 @@ import numpy as np
 from PIL import Image
 import io
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import streamlit as st
 
 
 app = Flask(__name__)
-CORS(app)
 
 def image_processing(img):
     image_data = img.read()
