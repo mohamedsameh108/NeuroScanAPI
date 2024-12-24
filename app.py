@@ -8,7 +8,7 @@ from tensorflow.keras.models import load_model
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "https://neuroscanweb.netlify.app"}})
 
 def image_processing(img):
     image_data = img.read()
