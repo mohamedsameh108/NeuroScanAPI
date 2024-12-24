@@ -6,6 +6,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import os
+import h5py
+
+try:
+    with h5py.File('model_NonVSVeryMild.h5', 'r') as f:
+        print("HDF5 file keys:", list(f.keys()))
+except Exception as e:
+    print("Error:", e)
+
 
 app = Flask(__name__)
 CORS(app)
