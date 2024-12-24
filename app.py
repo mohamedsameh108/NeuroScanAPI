@@ -21,7 +21,7 @@ CORS(app, resources={
         "allow_headers": ["Content-Type", "Authorization"]
     }
     }
-})
+)
 
 def image_processing(img):
     image_data = img.read()
