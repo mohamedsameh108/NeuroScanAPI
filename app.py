@@ -3,9 +3,13 @@ import numpy as np
 from PIL import Image
 import io
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import streamlit as st
+
+
+app = Flask(__name__)
+CORS(app)
 
 def image_processing(img):
     image_data = img.read()
@@ -28,11 +32,7 @@ VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
 VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
-app = Flask(__name__)
-cors = CORS(app, support_credentials=False)
-app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/api/classify', methods=['POST'])
-@cross_origin(support_credentials=False)
 def classify():
     try:
         if 'image' not in request.files:
