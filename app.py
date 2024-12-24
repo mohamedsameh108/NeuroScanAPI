@@ -24,7 +24,7 @@ def image_processing(img):
     return final_img
     
 
-NonVSVeryMild_model = tf.keras.models.load_model('/workspaces/NeuroScanAPI/model_NonVSVeryMild.h5')
+NonVSVeryMild_model = tf.keras.models.load_model('model_NonVSVeryMild.h5')
 NonVSMild_model = tf.keras.models.load_model('model_NonVSMild.h5')
 NonVSModerate_model = tf.keras.models.load_model('model_NonVSModerate.h5')
 VeryMildVSMild_model = tf.keras.models.load_model('model_VeryMildVSMild.h5')
