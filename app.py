@@ -29,7 +29,7 @@ VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
 app = Flask(__name__)
-cors = CORS(app, , support_credentials=False)
+cors = CORS(app, support_credentials=False)
 app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/api/classify', methods=['POST'])
 @cross_origin(support_credentials=False)
