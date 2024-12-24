@@ -9,7 +9,14 @@ import streamlit as st
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://neuroscanweb.netlify.app"}})
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add("Access-Control-Allow-Origin", "https://neuroscanweb.netlify.app")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response.headers.add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+    return response
 
 def image_processing(img):
     image_data = img.read()
@@ -32,7 +39,7 @@ VeryMildVSMild_model = load_model('model_VeryMildVSMild.h5')
 VeryMildVSModerate_model = load_model('model_VeryMildVSModerate.h5')
 MildVSModerate_model = load_model('model_MildVSModerate.h5')
 
-@app.route('/api/classify', methods=['POST'])
+@app.route('/', methods=['POST'])
 def classify():
     try:
         if 'image' not in request.files:
